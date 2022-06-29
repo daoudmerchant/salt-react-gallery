@@ -1,9 +1,16 @@
 import React from "react";
+import styled from "styled-components";
+
+const HeaderElem = styled.header`
+    background-color: steelblue;
+    margin-bottom: 1em;
+    color: white;
+`
 
 const Header = () => (
-    <header>
+    <HeaderElem>
         <h1>LOGO</h1>
-    </header>
+    </HeaderElem>
 )
 
 export default Header;
