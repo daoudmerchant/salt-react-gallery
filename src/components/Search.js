@@ -1,4 +1,4 @@
-import React, { useState, useId } from "react";
+import React, { useState, useId, useEffect } from "react";
 import styled from "styled-components";
 import { useList } from "../hooks";
 import Datalist from "./Datalist";
@@ -16,7 +16,7 @@ const Input = styled.input`
 
 const Search = ({ setSearchTerm }) => {
     const [value, setValue] = useState('');
-    const [searches, setSearches] = useList()
+    const [searches, setSearches] = useList(JSON.parse(window.localStorage.getItem('unsplash')))
     const datalistId = useId();
     const handleSubmit = e => {
         e.preventDefault();
@@ -27,6 +27,9 @@ const Search = ({ setSearchTerm }) => {
         setSearches(value);
         setValue('')
     }
+    useEffect(() => {
+        window.localStorage.setItem('unsplash', JSON.stringify(searches))
+    }, [searches])
     return (
         <Form className="form" onSubmit={handleSubmit}>
             <Input

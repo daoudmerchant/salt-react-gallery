@@ -20,7 +20,6 @@ const GalleryContainer = styled.div`
         grid-template-columns: repeat(3, 1fr)
     }
     margin-top: 1em;
-    margin-bottom: calc(3em + 40px);
 `
 
 const Gallery = () => {
