@@ -2,14 +2,17 @@ import React, { useState, useId } from "react";
 import { useList } from "../hooks";
 import Datalist from "./Datalist";
 
-const Search = ({ getImages }) => {
+const Search = ({ setSearchTerm }) => {
     const [value, setValue] = useState('');
     const [searches, setSearches] = useList()
     const datalistId = useId();
-    const handleSubmit = async e => {
+    const handleSubmit = e => {
         e.preventDefault();
+        if (searches[0] === value || value === '') {
+            return;
+        }
+        setSearchTerm(value)
         setSearches(value);
-        await getImages(value);
         setValue('')
     }
     return (
