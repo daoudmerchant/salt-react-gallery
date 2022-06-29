@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Salt React Gallery - Day 1 - Building the MVP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## A. Scenario
 
-## Available Scripts
+A minimum viable product (MVP) is a version of a product with just enough features to satisfy early customers and provide feedback for future product development.
 
-In the project directory, you can run:
+## B. MVP specifications
 
-### `npm start`
+### Tech stack specifications
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The project _must_:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* Be created with `create-react-app`.
+* Use original layout work, no Bootstrap or similar allowed.
+* Be responsive, with mobile first in mind.
+* Be tested up using Jest as a testrunner, and utilize React Testing Library.
+  * At the end of the day at least one test with snapshot testing.
+* Have only _one_ `index.html` (our 'Single Page') and then use ReactJS as frontend framework.
+* Have _multiple_ React components and any imports from one file to another should be made using ES6 import/export syntax (e.g. `import fetcher from './fetcher'`).
+  * The components should be written in functional style.
 
-### `npm test`
+The project shall also:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Have all of its JavaScript and CSS bundled with webpack.
+  * Your choose method of styling yourself, be it SCSS, styled components or otherwise.
+* This goes without saying, but should look good in a professional kind of style.
 
-### `npm run build`
+### MVP requirements
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+We want you to build an application similar to the following 'design'.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img src="design.jpg" height="400px" object-fit="contain"/>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The technical requirements are fairly few, so feel free to add features if you have time. However, we require that the application:
 
-### `npm run eject`
+1. Has a form which, on submit, fetches images from the [Unsplash API /search/photos endpoint](https://unsplash.com/documentation#search-photos). You'll have to set up a developer account and get an API key for making your requests.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. When the form is selected, a 'suggestions' list should be appended to it. The suggestions list should be based on any previous searches. We want you to do this by saving the previous searches in [Window.localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) (which is like a database in the browser). Remember that the view should be based on the state, not the other way around.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. When you get a response from the Unsplash API, render the 10 images as cards on the web page.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. Every card should have a flip/rotate animation. On the backside of each card, list some text information from the Unsplash API response.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+5. There should be a pagination functionality so that when clicking the `next` button, the 10 next images should be displayed. There should also be a `previous` button which fetches the previous 10 images.
 
-## Learn More
+6. You should have written tests.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+GLHF!
