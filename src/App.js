@@ -1,8 +1,12 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { createGlobalStyle } from 'styled-components';
-import Footer from './components/Footer';
-import Gallery from './pages/Gallery';
 import Header from './components/Header';
- 
+import Footer from './components/Footer';
+import Search from './pages/Search';
+import About from "./pages/About";
+import Home from "./pages/Home";
+import Error from "./pages/Error";
+
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
@@ -22,6 +26,13 @@ const GlobalStyle = createGlobalStyle`
   body, .root, .App {
     height: 100vh;
   }
+
+  a {
+    text-decoration: none;
+    &:visited {
+      text-decoration: none;
+    }
+  }
 `;
 
 const App = () => {
@@ -29,8 +40,18 @@ const App = () => {
     <>
       <GlobalStyle />
       <div className="App">
+        <Router>
         <Header />
-        <Gallery />
+
+          <Routes>
+            <Route path='/' element={<Home/>}/>
+            <Route path='search' element={<Search />}/>
+            <Route path='about' element={<About />}/>
+            <Route path='error' element={<Error />}/>
+            <Route path='/:invalid' element={<Error />}/>
+          </Routes>
+          
+        </Router>
         <Footer />
       </div>
     </>

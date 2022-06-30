@@ -1,4 +1,5 @@
 import React, { useState, useId, useEffect } from "react";
+import {useNavigate} from "react-router-dom"
 import styled from "styled-components";
 import { useList } from "../hooks";
 import Datalist from "./Datalist";
@@ -14,18 +15,19 @@ const Input = styled.input`
     padding: .5em .8em;
 `
 
-const Search = ({ setSearchTerm }) => {
+const SearchForm = () => {
     const [value, setValue] = useState('');
     const [searches, setSearches] = useList(JSON.parse(window.localStorage.getItem('unsplash')))
+    const navigate = useNavigate()
     const datalistId = useId();
     const handleSubmit = e => {
         e.preventDefault();
         if (searches[0] === value || value === '') {
             return;
         }
-        setSearchTerm(value)
         setSearches(value);
         setValue('')
+        navigate(`./?q=${encodeURIComponent(value)}`, { replace: false })
     }
     useEffect(() => {
         window.localStorage.setItem('unsplash', JSON.stringify(searches))
@@ -45,4 +47,4 @@ const Search = ({ setSearchTerm }) => {
     )
 }
 
-export default Search;
+export default SearchForm;
