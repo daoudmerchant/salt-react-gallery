@@ -3,8 +3,9 @@ import styled from 'styled-components'
 
 const LogoContainer = styled.div`
     padding: .8em 1.5em;
-    margin: 1em;
     font-size: .4em;
+    margin-block: 1em;
+    margin-left: 1em;
     border-radius: 20px;
     background: #385f89;
     color: white;
@@ -32,4 +33,3 @@ const Logo = () => {
 
 export default Logo
 
-Promise.all()

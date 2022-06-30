@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import {
   AiOutlineHome,
   AiOutlineSearch,
@@ -26,30 +26,45 @@ const Nav = styled.nav`
   font-size: 2em;
 `;
 
-const MyLink = styled(Link)`
+const MyNavLink = styled(NavLink)`
  &:first-child {
     margin-right: auto;
  }
- &:not(:first-child) {
-    margin-inline: .5em;
- }
 `
+
+const linkStyle = {
+  alignSelf: "stretch",
+  display: "flex",
+  alignItems: "center",
+  paddingInline: ".4em"
+}
+
+const activeStyle = {
+  color: "steelblue",
+  backgroundColor: "white"
+}
 
 const Header = () => (
   <HeaderElem>
     <Nav>
-      <MyLink to="/">
+      <MyNavLink to="/">
         <Logo />
-      </MyLink>
-        <MyLink to="/">
+      </MyNavLink>
+        <NavLink style={({ isActive }) =>
+              isActive ? {...linkStyle, ...activeStyle} : linkStyle
+            } to="/">
           <AiOutlineHome />
-        </MyLink>
-        <MyLink to="search">
+        </NavLink>
+        <NavLink style={({ isActive }) =>
+              isActive ? {...linkStyle, ...activeStyle} : linkStyle
+            } to="search">
           <AiOutlineSearch />
-        </MyLink>
-        <MyLink to="about">
+        </NavLink>
+        <NavLink style={({ isActive }) =>
+              isActive ? {...linkStyle, ...activeStyle} : linkStyle
+            } to="about">
           <AiOutlineInfoCircle />
-        </MyLink>
+        </NavLink>
     </Nav>
   </HeaderElem>
 );
