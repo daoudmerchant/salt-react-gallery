@@ -34,7 +34,6 @@ const Card = styled.img`
 `;
 
 const Image = ({ img }) => {
-    console.log(img)
   return (
     <div className="card">
       <div className="card-container">

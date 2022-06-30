@@ -6,7 +6,6 @@ import {
   AiOutlineSearch,
   AiOutlineInfoCircle,
 } from "react-icons/ai";
-import { GiSaltShaker } from "react-icons/gi";
 
 import Logo from "./Logo";
 

@@ -57,7 +57,7 @@ const Search = () => {
         // site.com/search?nope=invalid
         navigate(`../error?keys=${encodeURIComponent(invalidKeys.join())}`)
        }
-    }, [searchTerm])
+    }, [searchTerm, page])
     return (
         <main>
             <SearchForm />
